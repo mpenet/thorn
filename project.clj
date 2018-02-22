@@ -1,5 +1,5 @@
-(defproject cc.qbits/thorn "0.1.0-SNAPSHOT"
-  :description ""
+(defproject cc.qbits/thorn "0.1.0"
+  :description "Ηоⅿоɡⅼурһ ԁеτеϲτіоɴ аɴԁ аѕѕогτеԁ υτіⅼѕ"
   :url "https://github.com/mpenet/thorn"
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [cheshire "5.8.0"]

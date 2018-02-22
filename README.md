@@ -1,4 +1,4 @@
-# Thorn
+# Τһогɴ
 
 This is a direct port of [https://github.com/vhf/confusable_homoglyphs](https://github.com/vhf/confusable_homoglyphs) to clojure
 
