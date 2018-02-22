@@ -1,6 +1,6 @@
 # Thorn
 
-This is a direct port of [https://github.com/vhf/confusable_homoglyphs](confusable_homoglyphs) to clojure
+This is a direct port of [https://github.com/vhf/confusable_homoglyphs](https://github.com/vhf/confusable_homoglyphs) to clojure
 
 ## Documentation
 
