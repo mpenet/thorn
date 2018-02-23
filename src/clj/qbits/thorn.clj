@@ -65,9 +65,9 @@
                      :allowed-aliases (s/? (s/coll-of ::alias :kind set?)))
         :ret boolean?)
 (defn mixed-script?
-  "Checks if ``s`` contains mixed-scripts content, excluding script
-   blocks aliases in ``allowed_aliases``.
-   E.g. ``B. C`` is not considered mixed-scripts by default: it contains characters
+  "Checks if `s` contains mixed-scripts content, excluding script
+   blocks aliases in `allowed-aliases`.
+   E.g. `B. C` is not considered mixed-scripts by default: it contains characters
    from **Latin** and **Common**, but **Common** is excluded by default."
   ([s allowed-aliases]
    (->> s
@@ -77,8 +77,6 @@
         (< 1)))
   ([s]
    (mixed-script? s #{"COMMON"})))
-
-;; confusables
 
 (defonce confusables-data (json/parse-string (slurp (io/resource "confusables.json"))))
 
@@ -93,6 +91,26 @@
 (s/def ::homoglyphs (s/coll-of (s/map-of #{"c" "n"} string?)))
 
 (defn confusables
+  "Checks if `s` contains characters which might be confusable with
+  characters from `preferred-aliases`.
+
+  This returns a lazy-seq so you're free to check only the first char
+  or the whole string.
+
+ `preferred-aliases` can take an set of unicode block aliases to be
+  considered as your 'base' unicode blocks:
+
+    -  considering `paρa`,
+       -  with `preferred-aliases` `#{\"LATIN\"}`, the 3rd character `ρ`
+          would be returned because this greek letter can be confused with
+          latin `p`.
+       -  with `preferred-aliases` `#{\"greek\"}`, the 1st character `p`
+          would be returned because this latin letter can be confused with
+          greek `ρ`.
+       -  without a `preferred-aliases`, you'll discover
+          the 29 characters that can be confused with `p`, the 23
+          characters that look like `a`, and the one that looks like `ρ`
+          (which is, of course, *p* aka *LATIN SMALL LETTER P*)."
   ([s preferred-aliases]
    (-> (for [chr (distinct s)
              :let [a (alias chr)]
@@ -119,10 +137,10 @@
         :args (s/cat :s string?
                      :preferred-aliases (s/? (s/coll-of ::alias :kind set?))))
 (defn dangerous?
-  "Checks if ``string`` can be dangerous, i.e. is it not only
+  "Checks if `s` can be dangerous, i.e. is it not only
    mixed-scripts but also contains characters from other scripts than
-   the ones in ``preferred-aliases`` that might be confusable with
-   characters from scripts in ``preferred-aliases``"
+   the ones in `preferred-aliases` that might be confusable with
+   characters from scripts in `preferred-aliases`"
   ([s preferred-aliases]
    (and (mixed-script? s)
         (confusables s preferred-aliases)))
