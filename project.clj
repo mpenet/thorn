@@ -8,6 +8,6 @@
   :profiles {:dev
              {:plugins [[codox "0.10.3"]]}}
   :codox {:source-uri "https://github.com/mpenet/thorn/blob/master/{filepath}#L{line}"
-          :output-path "doc"
+          :output-path "docs"
           :metadata {:doc/format :markdown}}
   :global-vars {*warn-on-reflection* true})
