@@ -36,6 +36,10 @@ confused with a character from some unicode blocks of your choosing.
 
 [codox generated documentation](https://mpenet.github.io/thorn/qbits.thorn.html).
 
+The
+[tests](https://github.com/mpenet/thorn/blob/master/test/qbits/thorn/test/core_test.clj)
+might help you getting started.
+
 ## Installation
 
 thorn is [available on Clojars](https://clojars.org/cc.qbits/thorn).
