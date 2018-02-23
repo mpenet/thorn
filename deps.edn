@@ -1,0 +1,10 @@
+{:deps {org.clojure/clojure {:mvn/version "1.9.0"}
+        cheshire {:mvn/version "5.8.0"}
+        org.clojure/test.check {:mvn/version "0.9.0"}}
+
+ :paths ["src/clj" "resources"]
+
+ :aliases {:test {:extra-paths ["test"]
+                  :extra-deps {com.cognitect/test-runner {:git/url "git@github.com:cognitect-labs/test-runner"
+                                                          :sha "5fb4fc46ad0bf2e0ce45eba5b9117a2e89166479"}}
+                  :main-opts ["-m" "cognitect.test-runner"]}}}
