@@ -17,7 +17,7 @@ who deliberately chose the username ΑlaskaJazz.
 
 You might also want to avoid people being tricked into entering their
 password on `www.micros﻿оft.com` or `www.faϲebook.com` instead of
-`www.microsoft.com` or `www.facebook.com`. `[Here is a
+`www.microsoft.com` or `www.facebook.com`. [Here is a
 utility](http://unicode.org/cldr/utility/confusables.jsp) to play with
 these **confusable homoglyphs**.
 
