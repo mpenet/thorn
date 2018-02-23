@@ -1,5 +1,7 @@
 # Τһогɴ
 
+[![Build Status](https://travis-ci.org/mpenet/thorn.svg?branch=master)](https://travis-ci.org/mpenet/thorn)
+
 This is a direct port of the work of [@vhf](https://github.com/vhf) on
 [https://github.com/vhf/confusable_homoglyphs](https://github.com/vhf/confusable_homoglyphs)
 to clojure .
